@@ -1,6 +1,8 @@
 
 
-#' Function returns a list of intergrowth standards
+#' Function returns a list of Intergrowth-21st standards
+#' https://intergrowth21.tghn.org/standards-tools/
+#'
 #' @import data.table
 #' @keywords internal
 intergrowth_constants <- function() {

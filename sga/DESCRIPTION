@@ -6,7 +6,7 @@ Authors@R:
            family = "Mullany",
            role = c("aut", "cre"),
            email = "lmullany@jhu.edu")
-Description: Estimates SGA according to Intergrowth-21
+Description: Estimates SGA according to Intergrowth-21st Standards (https://intergrowth21.tghn.org/standards-tools/)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
