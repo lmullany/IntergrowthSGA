@@ -4,7 +4,12 @@
 \alias{estimate_sga_intergrowth}
 \title{Return SGA given a dataframe of sex, weight, and gestational age at birth}
 \usage{
-estimate_sga_intergrowth(df, include_outliers = FALSE, growth_standard = igs())
+estimate_sga_intergrowth(
+  df,
+  include_outliers = FALSE,
+  growth_standard = igs(),
+  useold = TRUE
+)
 }
 \arguments{
 \item{df}{The dataframe containing the three required variables, as above}
