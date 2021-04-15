@@ -144,7 +144,7 @@ igs <- function(growth_constants = NULL, min=24, max=43, length=134) {
 #' @export
 #' @examples
 #' estimate_sga_intergrowth(data)
-estimate_sga_intergrowth <- function(df, include_outliers = FALSE, growth_standard = igs(), useold=TRUE) {
+estimate_sga_intergrowth <- function(df, include_outliers = FALSE, growth_standard = igs()) {
 
   tryCatch(runchecks(df))
 
@@ -162,12 +162,7 @@ estimate_sga_intergrowth <- function(df, include_outliers = FALSE, growth_standa
   }
 
   # do an non-equi left outer join on the data (to retain rows)
-  if(useold) {
-    d <- growth_standard[d, on = .(g_start<gestage, g_end>=gestage)]
-  } else {
-    d <- growth_standard[d, on = .(g_start<=gestage, g_end>gestage)] # original code had an error - Eric modified
-  }
-
+  d <- growth_standard[d, on = .(g_start<=gestage, g_end>gestage)]
 
   # use case when to create
   d[,sga:=fcase(
@@ -191,7 +186,7 @@ fix_outliers <- function(df,gs) {
   bounds = c(gs[,min(g_start)],gs[,max(g_end)])
   # update outliers
   df[gestage<bounds[1], gestage:=bounds[1]]
-  df[gestage>bounds[2], gestage:=bounds[2]-0.1]
+  df[gestage>=bounds[2], gestage:=bounds[2]-0.1]
 
   return(df)
 
